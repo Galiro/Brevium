@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+    
+    <link href="scripts/jquery-ui-1.8.10.custom/css/custom-theme/jquery-ui-1.8.10.custom.css" rel="stylesheet" />
+	<script src="scripts/modernizr-1.7.min.js"></script>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/ahpi.imgload.js"></script>
+	<script src="scripts/jquery-ui-1.8.10.custom/js/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="scripts/canvas2image.js"></script>
+    <script src="scripts/base64.js"></script>
+	<script src="scripts/close-pixelate.js"></script>
+    <script>
+        
+var img = new Image();
+img.onload = function() {
+    var ctx = document.getElementById('canvas').getContext('2d');
+    ctx.drawImage(img, 0, 0);
+}
+img.src = 'example_images/beach.jpg';
+        
+        function init() {
+  document.getElementById('portrait-image').closePixelate([
+    { resolution : 24 },
+    { shape : 'circle', resolution : 24, size: 16, offset: 12, alpha: 0.5 }
+  ]);
+};
+window.addEventListener( 'load', init, false);
+        
+          $(function() {
+    $( "#slider" ).slider({
+  change: function( event, ui ) {}
+});
+  });
+        
+    </script>
+<body>
+    
+    
+    <canvas id="canvas"></canvas>
+    <img id="portrait-image" src="example_images/beach.jpg" />
+    <div id="slider"></div>
+</body>
+
+</html>
